@@ -1,0 +1,63 @@
+<!DOCTYPE html><html>
+<head><title>Tutorial</title>
+    <link href='VirtualMe/assets/img/VirtualMe.png' rel='shortcut icon'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tutorial-assets/prism.css" rel="stylesheet"/>   <link href="assets/style.css"
+ rel="stylesheet"/> </head>
+<body>
+<header>Tutorial</header><br>
+    <script src="tutorial-assets/prism.js"></script>
+      <center>
+        <div class="main">
+            <div class="mini">
+<button onclick='window.location.href="home.html"'>Home</button> <button onclick='window.location.href="guide.html"'>Guide</button><button onclick='window.location.href="emulator.html"'>Emulator</button>
+<button onclick='window.location.href="tutorial.html"'>Tutorial</button><button onclick='window.location.href="changelog.html"'>Changelog</button><button onclick='window.location.href="licence.html"'>Licence</button><br>
+<h3><strong>Tutorial</strong></h3>
+                <strong>Well, we'll start by listin all availabe options in VirtualMe. First, all functions available on the terminal object</strong><div class="code">
+                <strong>1:</strong><br><code class="language-javascript">terminal.log(text,tag,color,font,size)</code><br><strong>Description: </strong><text>Logs the entered text into the terminal.Here's a good example.</text><br><code class="language-javascript">terminal.log('A serious error ocurred.','strong','red','monospace','15px')</code></div><div class="code">
+                <strong>2:</strong><br><code class="language-javascript">terminal.space()</code><br><strong>Description: </strong><text>Jumps the next content to be inserted in the next line. If it is not used, multiple content will appear on the same line.</text></div><div class="code">
+                <strong>3:</strong><br><code class="language-javascript">terminal.clear()</code><br><strong>Description: </strong><text>Cleans the terminal.</text></div><div class="code">
+                <strong>4:</strong><br><code class="language-javascript">terminal.pushCursor()</code><br><strong>Description: </strong><text>Pushes the blinking cursor to the begining of the next line.If it is not called when new lines are logged, it remains blinking where it was.</text></div><div class="code">
+                <strong>5:</strong><br><code class="language-javascript">terminal.cursorText(text)</code><br><strong>Description: </strong><text>Inserts text to the blinking cursor. For example the default text is #_.</text></div><div class="code">
+                <strong>6:</strong><br><code class="language-javascript">terminal.text()</code><br><strong>Description: </strong><text>Calling this function returns the text entered by the user in the textfield.</text></div><div class="code">
+                <strong>7:</strong><br><code class="language-javascript">terminal.type()</code><br><strong>Description: </strong><text>This function inserts the textfield on the current line where commands are supposed to be typed. The earlier one where a command was entered vanishes and a new one is displayed on the current line. It is called when you want the user to enter a command. If it is not updated when content is logged, it remais where it was as new data is entered.</text></div><div class="code">
+                <strong>8:</strong><br><code class="language-javascript">terminal.loadScript(path,onerror,onload)</code><br><strong>Description: </strong><text>This loads the script in the specified path. 'onload' is the function to be called after the script is successfully loaded.'onerror' is the function to be called  if the script is unsuccessfully loaded.</text></div><div class="code">
+                <strong>9:</strong><br><code class="language-javascript">terminal.onKey(func)</code><br><strong>Description: </strong><text>The specified function will be called every time a key is pressed on the keyboard.</text></div><div class="code">
+                <strong>10:</strong><br><code class="language-javascript">terminal.getText()</code><br><strong>Description: </strong><text>returns the text entered by the user in the textfield.</text></div><strong>Hi! I hope you have learnt some functions available. Let's see how we can use them.</strong><div class="code">
+                <strong>11:</strong><br><code class="language-javascript">terminal.clear()\\clears the terminal&lt;terminal.log('The terminal has been cleaned. You can type anything now.','strong','yellow','monospace','20px')&lt;terminal.space()&lt;terminal.type()</code><br><strong>Description: </strong><text>Clears the terminal and tells you to type anything.</text></div><div class="code">
+                <strong>12:</strong><br><code class="language-javascript">terminal.clear()\\clears the terminal&lt;terminal.log('Do you want to continue? [Y/n]','strong','yellow','monospace','20px')&lt;terminal.space()&lrm;terminal.onEnter(key){
+				if(key=='Y'){terminal.log('You are continuing','strong','green','monospace','20px')
+				}else {terminal.log('Process cancelled by user.','strong','red','monospace','20px')
+				}
+				}</code><br><strong>Description: </strong><text> </text></div><strong>Now we can look at a more complex code. Here is a simple OS called YourNameOS.</strong><div class="code">
+                <strong>:</strong><br><code class="language-javascript">
+				function Start(){
+terminal.clear()
+terminal.log('Welcome to ','strong','red','regular','15px')
+terminal.log('Yourname version1.00','strong','yellow','monospace','20px')
+terminal.space()
+terminal.log('This is the simplest OS.','strong','blue','regular','15px')
+terminal.space()
+terminal.log('Start by typing your name','strong','green','regular','15px')
+terminal.space()
+terminal.log('OS C:MyFiles/MyOS','strong','green','monospace','15px')
+terminal.pushCursor();
+type()
+terminal.onKey(onReceive);
+function onReceive(a){
+if(a.key=='Enter'){
+if(terminal.text()==''){
+terminal.space()
+terminal.log('No name was entered.','strong','red','monospace','15px')
+terminal.pushCursor();
+type()
+}else{
+myname = terminal.text();
+terminal.space();
+terminal.log('Yourname is '+myname,'strong','green','monospace','15px')
+}
+}
+}
+}				</code><br><strong>Description: </strong><text>This is a simple OS called yourname OS. The start function must be defined first because it is automatically called when your script is loaded [only start.js script. where the Start() func is called.] </text></div></div></div></center>
+</body>
+</html>
